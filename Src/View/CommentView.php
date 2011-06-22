@@ -11,7 +11,7 @@
 		function __construct($com)
 		{
 			$this->comment = $com;
-		
+			
 			echo "<div id='center'>";
 				$this->DisplayPhoto();
 				$this->DisplayCommentsFromDatabase();
@@ -28,9 +28,8 @@
 		{
 				while($row = mysql_fetch_array($this->comment))
 				{
-					$newComment = new OutputCommentModel($row['CommentText']);
-				}
-				
+					$newComment = new OutputCommentModel($row['Text']);
+				}			
 		}
 		
 		private function DisplayComementsInput()

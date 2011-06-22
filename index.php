@@ -9,7 +9,7 @@
    	include_once 'Src/DBop/DBoperationPhoto.php';
 	include_once 'Src/DBop/DBoperationBasic.php';
 	include_once 'Src/DBop/DBoperationComment.php';
-	include_once 'Src/View/ShowOnePhoto.php';
+	include_once 'Src/View/CommentView.php';
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -50,8 +50,9 @@
 				<?php 
 		
 					if (isset($_GET['photoUrl']))
-					{
-						$photo = new ShowOnePhoto($_GET['photoUrl']);						
+					{			
+						DBoperationComment::GetComment();
+
 					}
 					else 
 					{

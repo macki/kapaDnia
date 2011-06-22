@@ -14,35 +14,20 @@
 		//-- Get Comment from DB
 		public static  function GetComment()		
 		{
-			if(DBoperationBasic::Connect() == TRUE)
-			{	
 				DBoperationComment::SendQueryGetComment();
-				
-				mysql_close();
-			}
-			else 
-			{
-				echo "Problem with Database Check later";
-			}
 		}
 		
 		//-- getting filtered then calling CommentView
 		private static function SendQueryGetComment()
 		{
-			$resultQuery = DBoperationComment::FilterData();
+			$resultQuery = DBoperationBasic::ExecuteQuery("SELECT *  
+								   from ". DBoperationComment::$commentTable."
+								   where  PhotoID = ".$_GET['photoId']);
 			
 			new CommentView($resultQuery);
 
 		}
 		
-		//-- Getting Data from Database
-		private static function FilterData()
-		{
-			$result = mysql_query("SELECT *  
-								   from ". DBoperationComment::$commentTable."
-								   where  PhotoID = ".$_GET['photoId']);
-			return $result;
-		}
 		
 		//-- Add comment to Database
 		public static function AddCommentToDatabase($comment,$photoId)
@@ -52,7 +37,7 @@
 			
 			if(DBoperationBasic::Connect() == TRUE)
 			{	
-				mysql_select_db("podloty", DBoperationBasic::$connection);
+				mysql_select_db("kapaDnia", DBoperationBasic::$connection);
 				
 				$userId = 2; //::TODO 
 						
@@ -62,7 +47,7 @@
 							OwnerID,
 							AddedDate,
 							Rank) VALUES (
-							 '".$photoId."',
+							 '".$id."',
 							 '".$comment."',
 							 '".$userId."',
 							 NOW(),

@@ -26,8 +26,8 @@ class InputCommentModel
 	{
 		echo
 		"
-		<form action='indexAddComment.php?photoUrl=".$_GET['photoUrl']."
-			&photoId=".$_GET['photoId']."	' method='post'>
+		<form action='indexAddComment.php?photoUrl=".$_GET['Url']."
+			&photoId=".$_GET['Id']."	' method='post'>
 		<br />
 		  <textarea name='commentText'
 		   	style='".$this->boxTextStyle."'>
