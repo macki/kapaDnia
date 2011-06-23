@@ -23,50 +23,71 @@
 		
 		<!-- Page Basic elements -->	
 		<!-- Register/Login -->	
-				<div id="login">
-					<?php
-						if($_SESSION['podloty_loggedin'] == 'ok')
-						{
-							echo "Jestes› zalogowany jako ".$_SESSION['userNick'];
-							echo " <a href=\"index.php?page=logout\">Wyloguj siÄ™</a>";
-						}
-						else
-						{
-							echo" <a href=\"index.php?page=registration\">Rejestracja</a> | <a href=\"index.php?page=login\">Logowanie</a>";
-						}
-						
-						ob_end_flush();
-					?>
-				</div>
-			
+			<div id="login">
+				<?php
+					if($_SESSION['podloty_loggedin'] == 'ok')
+					{
+						echo "Jestes› zalogowany jako ".$_SESSION['userNick'];
+						echo " <a href=\"index.php?page=logout\">Wyloguj sie</a>";
+					}
+					else
+					{
+						echo" <a href=\"index.php?page=registration\">Rejestracja</a> |
+						 <a href=\"index.php?page=login\">Logowanie</a>";
+					}
+					
+					ob_end_flush();
+				?>
+			</div>
+											
 		<!-- Logo/Top -->
-				<div id="top">
-					<img src='source/top.png' width='100%'>
-				</div>
+			<div id="top">
+				<img src='source/top.png' width='100%'>
+			</div>
+			
+			
+		<!--  Formularz Register/Login -->
+			<?php		
+				$allowed_id = Array('home',
+									'registration',
+									'login',
+									'logout');
 				
-		
+				//-- Navigate to proper login/register site
+				if(in_array($_GET['page'], $allowed_id))
+				{
+					if(file_exists("Src/View/".$_GET['page'].".php"))
+					{	
+						include("Src/View/".$_GET['page'].".php");
+					}
+					else
+						echo("Podana podstrona nie istnieje. Powiadom administratora.");
+				}
+				else
+				{
+						//echo "<a href='index.php' >"; 
+				}
+			
+			?>		
+	
 		<!-- Center parts of website -->	
-			<div id="center">
 				<?php 
 		
 					if (isset($_GET['photoUrl']))
 					{			
-						DBoperationComment::GetComment();
-
+						//$clickedPhoto = new CommentView();
+						include_once 'Src/View/comment/comment.php';
+						//header("Location: Src/View/comment/comment.php");
 					}
 					else 
 					{
-						DisplayPhoto();
-					}
-					
-						//-- Displaying photos
-						function DisplayPhoto()
-						{
-							DBoperationPhoto::GetPhotos('','');
-						}
+						DBoperationPhoto::GetPhotos('','');
+					}					
 				?>						
-			</div>	
-					
+							
 		</body>
 	</head>	
 </html>
+
+
+

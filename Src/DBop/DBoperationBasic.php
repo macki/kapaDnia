@@ -79,7 +79,7 @@
 					return false;
 				}
 					
-				mysql_close(self::$connection);
+				mysql_close(self::$connection);		
 				return $result;
 			}
 		}
@@ -89,8 +89,7 @@
 			if(self::Connect_Modf() == true)
 			{
 				$result = mysql_query($query);
-				
-				
+							
 				if(!$result)
 				{
 					self::LogError(mysql_escape_string(mysql_error()), "MYSQL_Scalar");
@@ -109,7 +108,8 @@
 		{
 			date_default_timezone_set('Europe/Warsaw');
 			
-			if($errConnection = mysql_connect(self::$host, self::$userNameErr, self::$passwordErr))
+			//::Changing self::$host, self::$userNameErr, self::$passwordErr in mysql_connect()
+			if($errConnection = mysql_connect())
 			{
 				mysql_select_db(self::$DBname, $errConnection);
 				mysql_query('SET NAMES utf8');

@@ -6,36 +6,29 @@
 
 	class CommentView
 	{
-		private $comment = array();
-		
-		function __construct($com)
+		function __construct()
 		{
 			$this->comment = $com;
 			
 			echo "<div id='center'>";
 				$this->DisplayPhoto();
-				$this->DisplayCommentsFromDatabase();
-				$this->DisplayComementsInput();
+				$this->DisplayComments();
 			echo "</div>";
 		}
-			
+
+		//-- Getting photo [GET]
 		private function DisplayPhoto()
 		{
-				echo" <img src =".$_GET['photoUrl']. " />";
+			echo" <img src =".$_GET['photoUrl']. " />";
 		}
 		
-		private function DisplayCommentsFromDatabase()
+		//-- Getting comments Module
+		private function DisplayComments()
 		{
-				while($row = mysql_fetch_array($this->comment))
-				{
-					$newComment = new OutputCommentModel($row['Text']);
-				}			
+			
+			
 		}
 		
-		private function DisplayComementsInput()
-		{
-			$nowy = new InputCommentModel();
-		}
 	}
 
 ?>
