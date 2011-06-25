@@ -1,4 +1,9 @@
+<?php ob_start(); ?>
+
 <?php
+	session_start();
+	$_SESSION['notRefresh'] = true;
+
 
 	if($_SESSION['podloty_loggedin'] == 'ok')
 	{
@@ -11,14 +16,16 @@
 		
 		if(!empty($spr))
 		{
-			ob_end_clean();
-			header("Location: index.php");
+			header("Location: http://127.0.0.1/kapa/index.php");
+			ob_end_flush();
+
 		}
 	}
 	else
 	{
-		ob_end_clean();
-		header("Location: index.php");
+		header("Location: http://127.0.0.1/kapa/index.php");
+	
+		ob_end_flush();
 	}
 
 ?>

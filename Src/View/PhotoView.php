@@ -23,7 +23,7 @@ class ShowPhoto
 		{
 			ShowPhoto::CalculateSize($row['Url']);
 			
-			 echo "<div id='center'>";
+			 echo "<div id='centerMy'>";
 				echo"<a href= index.php?photoId=".$row['id'].
 					"&photoUrl=".$row['Url'].">
 					<img src =".$row['Url'].

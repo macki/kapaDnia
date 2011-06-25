@@ -9,7 +9,7 @@
  
 	$(function() {
 	$(".submit").click(function() {
-
+	
 	var name = $("#name").val();
 	var email = $("#email").val();
 	var comment = $("#comment").val();

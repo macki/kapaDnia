@@ -16,7 +16,7 @@ if($_SESSION['podloty_loggedin'] != 'ok')
 		}
 		else
 		{
-			require_once("Src/Util/Checkemail.php");
+			require_once("Src/Utility/Checkemail.php");
 						
 			if(!validdata($_POST['nick']))
 			{

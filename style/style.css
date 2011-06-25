@@ -1,30 +1,13 @@
 @CHARSET "UTF-8";
 
-body {
-		background-color: #FFFFFF;
-		background-image: url("source/top.jpg");
-		background-repeat: no-repeat;
-		background-attachment:fixed;
-		background-position:100% 20%;
-	/*	
-		margin-top: 100px;
-		margin-right: 40px;
-		margin-bottom: 10px;
-		margin-left: 70px;
-	*/
-		width:100%;
-		margin-left: 0%;;
-		
-	}
-
-#top
+#topMy
 	{
 		text-align: center;
 		width:100%;
 		height:300px;
 	}
 	
-#login
+#loginMy
 	{
 		margin:0% 0% 0px 80%;
 	}	
@@ -53,7 +36,7 @@ body {
 		background: red;
 	}	
 
-#center
+#centerMy
 	{
 		margin-top:10px;
 		width:100%;
@@ -94,7 +77,7 @@ body {
 		width: 50%;  
 	}
 	
-	#picture {
+	#pictureMy {
 		float:left;
 		width: auto;
 	}
@@ -182,5 +165,6 @@ body {
 		 
 	}
 	
+
 
 	

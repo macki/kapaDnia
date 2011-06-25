@@ -9,7 +9,7 @@ if($_SESSION['podloty_loggedin'] != 'ok')
 	// ***************************************************
 	if($_POST['logowanie_krok2'] == 'ok' && isset($_POST['nick'], $_POST['pass']))
 	{
-		require_once("Src/Util/Checkemail.php");
+		require_once("Src/Utility/Checkemail.php");
 		
 		if(empty($_POST['nick']) || empty($_POST['pass']) || !validdata($_POST['nick']))
 		{
@@ -45,16 +45,41 @@ if($_SESSION['podloty_loggedin'] != 'ok')
 	
 	.
 	
-	<form id="loginForm" name="loginForm" method="post" action="index.php?page=login">
-	<table>
-		<tr><td>Nick: </td><td><input type="text" name="nick" /></td></tr>
-		<tr><td>Hasło: </td><td><input type="password" name="pass" /></td></tr>
-		<input type="hidden" name="logowanie_krok2" value="ok" />
-		<tr><td colspan="2"><input type="submit" name="submit" value="Zaloguj" /></td><td></td></tr>
-	</table>
+<style>
+	ul#display-inline-block-example,
+	ul#display-inline-block-example li {
+		/* Setting a common base */
+		margin: 0;
+		padding: 0;
+	}
 
-	</form>
-	
+	ul#display-inline-block-example li {
+		display: inline-block;
+		width: auto;
+		min-height: 100px;
+	}
+</style>	
+
+<div style="margin-left:35%;">	
+	<ul id="display-inline-block-example">
+		<li>
+			<form id="loginForm" name="loginForm" method="post" action="index.php?page=login">
+				<table>			
+					<tr><td>Pijak: </td><td><input type="text" name="nick" /></td></tr>
+					<tr><td>Haselko: </td><td><input type="password" name="pass" /></td></tr>
+					<input type="hidden" name="logowanie_krok2" value="ok" />
+					<tr><td colspan="2"><input type="submit" name="submit" value="Zaloguj" /></td><td></td></tr>
+				</table>	
+			</form>	
+		</li>
+		<li>
+			<div style="margin-left:20px;">	
+				<img src='source/drunk.jpg' width='50px' height='100px'>
+			</div>
+		</li>	
+	</ul>	
+</div>
+
 	<?php
 	}
 }

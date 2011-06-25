@@ -1,9 +1,6 @@
 
 <?php
 	
-	include_once 'Src/Model/comment/OutputCommentModel.php';
-	include_once 'Src/Model/comment/InputCommentModel.php';
-
 	class CommentView
 	{
 		function __construct()
