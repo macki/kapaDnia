@@ -26,7 +26,7 @@ if($_SESSION['podloty_loggedin'] != 'ok')
 			{
 				$_SESSION['podloty_loggedin'] = 'ok';
 				$_SESSION['userNick'] = $user->getNick();
-				header("Location: index.php");
+				//header("Location: index.php");
 			}
 			else
 			{
@@ -63,7 +63,7 @@ if($_SESSION['podloty_loggedin'] != 'ok')
 <div style="margin-left:35%;">	
 	<ul id="display-inline-block-example">
 		<li>
-			<form id="loginForm" name="loginForm" method="post" action="index.php?page=login">
+			<form id="loginForm" name="loginForm" method="post" action="">
 				<table>			
 					<tr><td>Pijak: </td><td><input type="text" name="nick" /></td></tr>
 					<tr><td>Haselko: </td><td><input type="password" name="pass" /></td></tr>

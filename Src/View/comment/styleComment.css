@@ -1,0 +1,86 @@
+	.comment_box
+	{
+	background-color:#D3E7F5; border-bottom:#ffffff solid 1px; padding-top:3px
+	}
+	a
+	{
+	text-decoration:none;
+	
+	}
+	a:hover
+	{
+	text-decoration:underline;
+	}
+	*{margin:0;padding:0;}
+	
+	
+	ol.timeline
+	{list-style:none;font-size:1.2em;}
+	ol.timeline li{ display:none;position:relative;padding:.7em 0 .6em 0;}ol.timeline li:first-child{}
+	
+	#mainComment
+	{
+	width:500px; margin-top:20px; margin-left:30%;
+	font-family:"Trebuchet MS";
+	}
+	#flash
+	{
+	margin-left:100px;
+	
+	}
+	
+	.boxComment
+	{
+	height:85px;
+	border-bottom:#dedede dashed 1px;
+	margin-bottom:20px;
+	}
+	
+	inputComment
+	{
+	color:#000000;
+	font-size:14px;
+	border:#666666 solid 2px;
+	height:24px;
+	margin-bottom:10px;
+	width:250px;
+	}
+	
+	textarea
+	{
+	color:#000000;
+	font-size:14px;
+	border:#666666 solid 2px;
+	height:124px;
+	margin-bottom:10px;
+		width:400px;	
+	}
+	
+	.titlesComment{
+	font-size:13px;
+	padding-left:10px;
+	}
+	
+	.star
+	{
+	color:#FF0000; font-size:16px; font-weight:bold;
+	padding-left:5px;
+	}
+	
+	.com_img
+	{
+	float: left; width: 80px; height: 80px; margin-right: 20px;
+	}
+	.com_name
+	{
+	font-size: 16px; margin-leftt: 0px; color: rgb(102, 51, 153); font-weight: bold;
+	}
+	
+	#centerComment
+	{
+		margin-top:10px;
+		width:100%;
+		text-align:center;
+		height:auto;
+	}
+	

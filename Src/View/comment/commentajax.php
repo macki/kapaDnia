@@ -23,12 +23,11 @@ if($_POST)
 ?>
 
 
-<div id="main2">
-	<li class="box">
-	<img src="source/commentIcon2.jpg" 
-		<?php echo $image; ?> class="com_img">
-	<span class="com_name">
-		<?php echo $name; ?></span> <br />
-		<?php echo $comment_dis?></li>
 
+<li class="boxComment">
+			<img src="source/commentIcon2.jpg"
+				<?php echo $image; ?> class="com_img"></img>
+			<span class="com_name">
+				<?php echo $name; ?><br/></span>
+				<?php echo $comment_dis?></li>
 </div>

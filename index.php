@@ -36,27 +36,33 @@
 		
 </head>
 
+
 <body>		
 	<!-- Login -->
 	<div id="login">
 		<div class="loginContent">
 		<!-- Validation login in JS -->
-			<?php 
+			<?php
+			  if(isset($_GET['login']))
+			  {
 				$error = ValidateLogin($_POST['log']);	
 				echo $error;
+			  }
+			  
+			  //-- getting url of given page, when user login after clicking a photo
+			  if($_GET['photoId'] != '' || $_GET['photoUrl'] != '')
+			 	 $fullUrl = "photoId=".$_GET['photoId']."&photoUrl=".$_GET['photoUrl'];
+			  
+			 echo "<form action='index.php?login&".$fullUrl."' method='post'>";
 			?>
-
-			<form action="#" method="post">
 				<label for="log"><b>Username: </b></label>
 				<input class="field" type="text" name="log" id="log" value="" size="23" /><br>
 				<label for="pwd"><b>Password:</b></label>
-				<input class="field" type="password" name="pwd" id="pwd" size="23" />
+				<input class="field" type="password" name="pwd" id="pwd" size="23" /><br>
 				<input type="submit" name="submit" value="" class="button_login" />
-				<input type="hidden" name="redirect_to" value=""/>
+				<input type="hidden" name="redirect_to" value=""/><br>
 			</form>
 			
-			<div class="left">
-            	<label for="rememberme"><input name="rememberme" id="rememberme" class="rememberme" type="checkbox" checked="checked" value="forever" /> Remember me</label></div>
             	
 		</div>
 		<div class="loginClose"><a href="#" id="closeLogin"></a></div>
@@ -80,7 +86,7 @@
 				{
 					echo " <li>Pijak Anonim</li>";
 					echo "<li>|</li>
-						  <li><a id='toggleLogin' href='#'>Wbijaj</a></li>";
+						  <li><a id='toggleLogin' class='toggleLogin' href='#'>Wbijaj</a></li>";
 				}
 			?>  	
 			</ul> 
@@ -156,7 +162,6 @@
 							DBoperationPhoto::GetPhotos('','');
 						}	
 						
-							echo $script;
 					?>		
 					
 					
