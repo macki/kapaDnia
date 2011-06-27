@@ -38,6 +38,7 @@
 				}
 				else
 				{
+					echo "	<script type='text/javascript' src='js/fx.slideOpen.js'></script>";
 					return "Login or password are not correct";
 				}
 			}

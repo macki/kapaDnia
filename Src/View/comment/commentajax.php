@@ -5,9 +5,15 @@
 <?php
 include_once '../../DBop/DBoperationBasic.php';
 
+
 if($_POST)
-{
-	$name=$_POST['name'];
+{	
+		
+	if(isset($_SESSION['podloty_loggedin']))
+		$name =  $_SESSION['userNick'];
+	else
+		$name=$_POST['name'];
+	
 	$comment_dis=$_POST['comment'];
 	$photoId = $_POST['photoId'];
 	

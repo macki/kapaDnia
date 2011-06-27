@@ -1,21 +1,19 @@
+/*
+Name: Nice Login and Signup Panel using Mootools 1.2
+Tutorial URI: http://web-kreation.com/demos/login_form_mootools_1.2/
+Author: Jeremie Tisseau
+Author URI: http://web-kreation.com/
+Date: August 2008
 
-	ul#display-inline-block-example,
-	ul#display-inline-block-example li {
-		/* Setting a common base */
-		margin: 0;
-		padding: 0;
-	}
+	The CSS, XHTML and design is released under Creative Common License 2.5:
+	http://creativecommons.org/licenses/by-sa/2.5/
 
-	ul#display-inline-block-example li {
-		display: inline-block;
-		width: auto;
-		min-height: 100px;
-	}
+*/
 
 /* Login Panel */
 #top {
   	background: url(images/login_top.jpg) repeat-x 0 0;
-	height: 60px;
+	height: 38px;
 	position: relative;
 }
 
@@ -37,50 +35,24 @@
 	padding-right: 45px;
 }
 
-
-
 #top ul.login li.left {
   	background: url(images/login_l.jpg) no-repeat left 0;
   	height: 38px;
 	width: 45px;
-	padding: 0;
-	margin: 0px;
-  	display: block;
-	float: left;
-}
-
-.tab ul.login li.right {
-  	background: url(images/tab_r.png) no-repeat left 0;
-  	height: 42px;
-	width: 30px;
 	padding: 0;
 	margin: 0;
   	display: block;
 	float: left;
 }
 
-
 #top ul.login li {
- 	text-align: right;
+ 	text-align: left;
   	padding: 0 6px;
 	display: block;
 	float: left;
 	height: 38px;
   	background: url(images/login_m.jpg) repeat-x 0 0;
 }
-
-.tab ul.login li.menuRight {
-  	background: url(images/tab_r.png) no-repeat left 0;
-  	height: 42px;
-	width: 30px;
-	padding: 0px 400px 0px 0px;
-	margin: 0;
-  	display: block;
-	float: left;
-}
-
-
-
 
 #top ul.login li a {
 	color: #33CCCC;
@@ -93,7 +65,6 @@
 /*Login*/
 /* toggle effect - show/hide login*/
 #login {
-	
 	width: 100%;
 	color: white;
 	background: #1E1E1E;
@@ -102,7 +73,6 @@
 	z-index: 3;
 	height: 0;
 }
-
 
 #login a {
 	text-decoration: none;
@@ -114,23 +84,42 @@
 }
 
 #login .loginContent {
-	text-align:left;
-	width: 250px;
-	height: 100px;
-	margin: 0 auto 0 75%;
-	padding-top: 15px;
+	width: 550px;
+	height: 80px;
+	margin: 0 auto;
+	padding-top: 25px;
+	text-align: right;
 	font-size: 0.85em;
 }
 
 #login .registerContent {
-
-	width: 250px;
-	height: 100px;
-	margin: 0 auto 0 0%;
-	padding-top: 15px;
+	width: 550px;
+	height: 80px;
+	margin: 0 auto;
+	padding-top: 25px;
+	text-align: left;
 	font-size: 0.85em;
 }
 
+#login .loginContent .left {
+	width: 120px;
+	float: left;
+	padding-left: 65px;
+	font-size: 0.95em;
+}
+
+#login .loginContent .right {
+	width: 290px;
+	float: right;
+	text-align: right;
+	padding-right: 65px;
+	font-size: 0.95em;
+}
+
+#login .loginContent form {
+	margin: 0 0 10px 0;
+	height: 26px;
+}
 
 #login .loginContent input.field {
 	border: 1px #1A1A1A solid;
@@ -153,25 +142,12 @@
 }
 
 #login .loginContent input.button_login {
-	width: 80px;
-	height: 25px;
-	margin: 6px auto auto 180px;
-	position:absolute;
-	cursor:pointer;
+	width: 47px;
+	height: 20px;
+	cursor: pointer;
 	border: none;
-	background: transparent url(images/button_login.png) no-repeat 0 0;
+	background: transparent url(images/button_login.jpg) no-repeat 0 0;
 }
-
-#login .loginContent input.button_login:hover {
-	width: 80px;
-	height: 25px;
-	margin: 8px auto auto 180px;
-	position:absolute;
-	cursor:pointer;
-	border: none;
-	background: transparent url(images/button_login.png) no-repeat 0 0;
-}
-
 
 #login .loginClose {
 	display: block;

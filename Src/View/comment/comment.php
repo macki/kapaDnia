@@ -1,10 +1,15 @@
+<?php 
+
+	session_start();
+
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 
 <!-- Skrypty JS -->
-
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 <script type="text/javascript"> 
 
@@ -16,7 +21,7 @@
 		var email = $("#email").val();
 		var comment = $("#comment").val();
 		var photoId = $("#photoId").val();
-		    var dataString = 'name='+ name + '&photoId=' + photoId + '&comment=' + comment;
+		var dataString = 'name='+ name + '&photoId=' + photoId + '&comment=' + comment;
 			
 			if(name=='' || email=='' || comment=='')
 		     {
@@ -52,9 +57,7 @@
 		
 		});
 
-    alert($ instanceof jQuery);
 })(jQuery);
-
 
 </script>
 
@@ -71,8 +74,7 @@
 		<?php 	
 			echo "	<script type='text/javascript' src='js/fx.slide.js'></script>";	
 		?>	
-		
-		
+			
 <title>Twoja Kapa</title>
 
 
@@ -84,11 +86,13 @@
 <!-- Display photo -->	
 	<div id="centerComment">
 		<?php echo" <img src =".$_GET['photoUrl']. " />";?>
+		
 	</div>
 
 <!-- Display comments -->		
 	<div id="mainComment">
 		<?php
+
 			include('Src/View/comment/config.php');
 			include_once 'Src/DBop/DBoperationBasic.php';
 							
@@ -120,10 +124,24 @@
 	<div style="margin-left:100px">
 		<form action="#" method="post">
 			<input class="inputComment" type="hidden" name="photoId" id="photoId" value="<?php echo $_GET['photoId']; ?>"/>
-			<input class="inputComment" type="text" name="title" id="name"/>
-			<span class="titlesComment">Name</span><span class="star">*</span>
+				
+				<?php
+					
+					if($_SESSION['podloty_loggedin'] != 'ok')
+					{
+						 echo "<input class='inputComment' type='text' name='title' id='name'/>";
+						 echo "<span class='titlesComment'>Name</span><span class='star'>*</span>";
+					}
+					else 
+					{
+						  echo "<span type='hidden' class='titlesCommentLogged'>".$_SESSION['userNick']."</span><span class='star'></span>";						
+					}
+					
+				?>
+					
+							
 			<br></br>
-			<textarea  onclick="kapa()"  name="styled-textarea" name="comment" id="comment"></textarea><br />
+			<textarea  name="styled-textarea" name="comment" id="comment"></textarea><br />
 			<input type="submit" class="submitComment" value="Dodaj Komentarz" />	
 		</form>
 	</div>

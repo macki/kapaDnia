@@ -28,6 +28,7 @@
 		<link rel="stylesheet" type="text/css" href="style/style.css" />
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="fx.slide.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="style/slide.css" type="text/css" media="screen" />
 		
 		<!-- Show hidden login/Register Panel -->
 		<?php 	
@@ -38,9 +39,11 @@
 
 
 <body>		
-	<!-- Login -->
+<!-- Login -->	
 	<div id="login">
+
 		<div class="loginContent">
+	
 		<!-- Validation login in JS -->
 			<?php
 			  if(isset($_GET['login']))
@@ -62,7 +65,7 @@
 				<input type="submit" name="submit" value="" class="button_login" />
 				<input type="hidden" name="redirect_to" value=""/><br>
 			</form>
-			
+			<div class="right"><a href="index.php?page=register">Register</a> | <a href="">Lost your password?</a></div>
             	
 		</div>
 		<div class="loginClose"><a href="#" id="closeLogin"></a></div>
@@ -74,23 +77,30 @@
 			<ul class="login">
 		    	<li class="left">&nbsp;</li>
 		    	
+		    	
+		    	
 		    <!-- Check user -->
 			<?php 
 				if($_SESSION['podloty_loggedin'] == 'ok')
 				{
 					echo " <li>".$_SESSION['userNick']."</li>";
+					echo "<li>|</li>";
+					echo " <li><a id='submit' class = 'submit' href='index.php'>Kapa</a></li>";
 					echo "<li>|</li>
 						  <li><a id='submit' class = 'submit' href='Src/View/logout.php'>Wyloguj</a></li>";
 				}
 				else
 				{
 					echo " <li>Pijak Anonim</li>";
+					echo "<li>|</li>";
+					echo " <li><a id='submit' class = 'submit' href='index.php'>Kapa</a></li>";
 					echo "<li>|</li>
 						  <li><a id='toggleLogin' class='toggleLogin' href='#'>Wbijaj</a></li>";
 				}
-			?>  	
-			</ul> 
-		
+			?>  
+			
+				 <li><a id='submit' class = 'submit' href='index.php?page=DodajFotke'>Dodaj Fotke</a></li>
+										
 		</div> 
 
         <div class="clearfix"></div>
@@ -149,42 +159,64 @@
 				?>	
 					
 			<!-- Center parts of website -->	
-					<?php 
-			
-						if (isset($_GET['photoUrl']))
-						{			
-							//$clickedPhoto = new CommentView();
-							include_once 'Src/View/comment/comment.php';
-							//header("Location: Src/View/comment/comment.php");
-						}
-						else 
-						{
-							DBoperationPhoto::GetPhotos('','');
-						}	
-						
-					?>		
+			<?php 
+				
+				if($_GET['page'] == 'register')
+				{
+					DisplayRegister();
+				}
+				else if($_GET['page'] == 'DodajFotke')
+				{
+					DisplayAddPhoto();	
+				}
+				else 
+				{
+					if (isset($_GET['photoUrl']))
+					{			
+						include_once 'Src/View/comment/comment.php';
+					}
+					else 
+					{
+						DBoperationPhoto::GetPhotos('','');
+					}	
 					
-					
-					<?php
-						if($_SESSION['podloty_loggedin'] == 'ok')
-						{
-							echo "Jestes› zalogowany jako ".$_SESSION['userNick'];
-							echo " <a href=\"index.php?page=logout\">Wyloguj sie</a>";
-						}
-						else
-						{
-							echo" <a href=\"index.php?page=registration\">Rejestracja</a> |
-							 <a href=\"index.php?page=login\">Logowanie</a>";
-						}
-						
-						ob_end_flush();
-					?>				
-			</div>	
-								
-		</body>
-		
 
-		
+					if($_SESSION['podloty_loggedin'] == 'ok')
+					{
+						echo "Jestes› zalogowany jako ".$_SESSION['userNick'];
+						echo " <a href=\"index.php?page=logout\">Wyloguj sie</a>";
+					}
+					else
+					{
+						echo" <a href=\"index.php?page=registration\">Rejestracja</a> |
+						 <a href=\"index.php?page=login\">Logowanie</a>";
+					}
+					
+					ob_end_flush();
+					
+				}
+			?>	
+			
+			
+	
+					<?php 
+					
+						function DisplayRegister()
+						{
+							include "Src/View/Register.php";
+						}
+						
+						function DisplayAddPhoto()
+						{
+							include "Src/View/DodajFotke.php";
+							
+						}	
+					?>	
+
+						
+			</div>							
+		</body>
+				
 </html>
 
 
